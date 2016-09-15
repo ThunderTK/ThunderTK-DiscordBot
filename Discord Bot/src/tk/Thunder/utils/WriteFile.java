@@ -1,0 +1,46 @@
+package tk.Thunder.utils;
+
+/**
+ * Created by tbkid on 2016-09-15.
+ */
+    import java.io.FileWriter;
+    import java.io.PrintWriter;
+    import java.io.IOException;
+
+
+
+public class WriteFile {
+
+    private String path;
+    private boolean append_to_file = false;
+
+
+
+    public WriteFile(String file_path){
+        path=file_path;
+
+
+    }
+    public WriteFile( String file_path , boolean append_value ) {
+
+        path = file_path;
+        append_to_file = append_value;
+
+    }
+
+    public void writeToFile (String textLine) throws IOException{
+
+        FileWriter writer = new FileWriter(path, append_to_file);
+        PrintWriter print_line=new PrintWriter(writer);
+
+        print_line.printf("%s"+"%n",textLine);
+
+        print_line.close();
+
+
+
+    }
+
+
+
+}
